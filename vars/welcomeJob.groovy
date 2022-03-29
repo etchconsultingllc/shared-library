@@ -1,7 +1,7 @@
 def call(String repoUrl){
 pipeline{
   agent any 
-  tools {'maven'}
+  tools { maven 'maven'}
   stages{
 
     stage('Cleanup Workspace') {
@@ -30,6 +30,7 @@ pipeline{
         sh "mvn clean package -DskipTests=true"
         archive 'target/*.jar'
       }
+     
    }
    stage('Unit Tests - JUnit and JaCoCo') {
       steps {
