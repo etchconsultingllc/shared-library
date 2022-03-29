@@ -1,7 +1,9 @@
 def call(String repoUrl){
 pipeline{
   agent any 
-  tools { maven "maven"}
+  tools {
+    maven 'maven'
+  }
   stages{
 
     stage('Cleanup Workspace') {
